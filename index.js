@@ -1,6 +1,6 @@
-const express = require('express') // vyacheslavsergin
-const path = require('path') // vyacheslavsergin
-const exphbs = require('express-handlebars') // vyacheslavsergin
+const express = require('express')
+const path = require('path')
+const exphbs = require('express-handlebars')
 const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
