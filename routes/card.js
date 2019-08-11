@@ -17,7 +17,7 @@ router.delete('/remove/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   const card = await Card.fetch()
 
-  console.log('card', card)
+  // console.log('card', card)
   // console.log('price', card.price)
 
   res.render('card', {
