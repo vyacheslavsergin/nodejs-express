@@ -1,1 +1,1 @@
-{"courses":[],"price":0}
+{"courses":[{"_id":"5d5187a7171bed1640cc65a6","title":"React","price":20000,"img":"https://i.udemycdn.com/course/750x422/434980_e515_2.jpg","__v":0},{"_id":"5d518762171bed1640cc65a5","title":"Angular 8","price":10000,"img":"https://kodytechnolab.com/img/blog/big/what%E2%80%99s-new-in-angular-8.jpg","__v":0},{"_id":"5d518762171bed1640cc65a5","title":"Angular 8","price":10000,"img":"https://kodytechnolab.com/img/blog/big/what%E2%80%99s-new-in-angular-8.jpg","__v":0}],"price":40000}

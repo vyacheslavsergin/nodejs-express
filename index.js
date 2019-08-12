@@ -19,7 +19,7 @@ app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
@@ -31,12 +31,13 @@ const PORT = process.env.PORT || 3000
 async function start() {
   try {
     // shop - database name
-    const url = `mongodb+srv://Vyacheslav:hQ9ceFjsg4DjYKPb@cluster0-cl0ti.mongodb.net/shop`
-    await mongoose.connect(url, {useNewUrlParser: true})
+    // password: UjJlcSqHed8ae5R8
+    const url = `mongodb+srv://Vyacheslav:UjJlcSqHed8ae5R8@cluster0-cl0ti.mongodb.net/shop`
+    await mongoose.connect(url, { useNewUrlParser: true })
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
     })
-  } catch(e) {
+  } catch (e) {
     console.log(e)
   }
 }
