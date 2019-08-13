@@ -30,10 +30,13 @@ const PORT = process.env.PORT || 3000
 
 async function start() {
   try {
-    // shop - database name
-    // password: UjJlcSqHed8ae5R8
-    const url = `mongodb+srv://Vyacheslav:UjJlcSqHed8ae5R8@cluster0-cl0ti.mongodb.net/shop`
-    await mongoose.connect(url, { useNewUrlParser: true })
+    const url = `mongodb+srv://Vyacheslav:NQwwUDbLvdGjWy1M@cluster0-cl0ti.mongodb.net/shop`
+
+    await mongoose.connect(url, {
+      useNewUrlParser: true,
+      useFindAndModify: false
+    })
+
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
     })
@@ -43,4 +46,3 @@ async function start() {
 }
 
 start()
-
