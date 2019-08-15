@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     .populate('userId', 'email name')
     .select('price title img')
 
-  console.log('courses', courses)
+  // console.log('courses', courses)
 
   res.render('courses', {
     title: 'Курсы',

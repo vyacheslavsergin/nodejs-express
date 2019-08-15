@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
+const keys = require('./keys')
 const homeRoutes = require('./routes/home')
 const cardRoutes = require('./routes/card')
 const addRoutes = require('./routes/add')
@@ -21,7 +22,7 @@ app.set('views', 'views')
 
 app.use(async (req, res, next) => {
   try {
-    const user = await User.findById('5d53ad6d490bf2284400dceb')
+    const user = await User.findById('5d55362843a7671aec707a6c')
     req.user = user
     next()
   } catch (e) {
@@ -39,9 +40,39 @@ app.use('/card', cardRoutes)
 
 const PORT = process.env.PORT || 3000
 
+async function startMongo() {
+  try {
+    await mongoose.connect(keys.mongoURI, {
+      useNewUrlParser: true,
+      useFindAndModify: false
+    })
+
+    const candidate = await User.findOne()
+
+    if (!candidate) {
+      const user = new User({
+        email: 'vyacheslavsergin@gmail.com',
+        name: 'Vyacheslav',
+        cart: { items: [] }
+      })
+
+      await user.save()
+    }
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`)
+    })
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+startMongo()
+
 async function start() {
   try {
-    const url = `mongodb+srv://Vyacheslav:NQwwUDbLvdGjWy1M@cluster0-cl0ti.mongodb.net/shop`
+    // const url = `mongodb+srv://Vyacheslav:EnJeLrCcxqmwcFL8@cluster0-cl0ti.mongodb.net/shop`
+    const url = `mongodb+srv://Vyacheslav:EnJeLrCcxqmwcFL8@cluster0-cl0ti.mongodb.net/test?retryWrites=true&w=majority`
 
     await mongoose.connect(url, {
       useNewUrlParser: true,
@@ -68,4 +99,4 @@ async function start() {
   }
 }
 
-start()
+// start()
