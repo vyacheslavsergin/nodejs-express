@@ -69,17 +69,17 @@ async function startMongo() {
     })
 
     // Write the user to the database
-    const candidate = await User.findOne()
-
-    if (!candidate) {
-      const user = new User({
-        email: 'vyacheslavsergin@gmail.com',
-        name: 'Vyacheslav',
-        cart: { items: [] }
-      })
-
-      await user.save()
-    }
+    // const candidate = await User.findOne()
+    //
+    // if (!candidate) {
+    //   const user = new User({
+    //     email: 'vyacheslavsergin@gmail.com',
+    //     name: 'Vyacheslav',
+    //     cart: { items: [] }
+    //   })
+    //
+    //   await user.save()
+    // }
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
