@@ -13,6 +13,7 @@ const coursesRoutes = require('./routes/courses')
 const authRoutes = require('./routes/auth')
 const User = require('./models/user')
 const varMiddleware = require('./middleware/variables')
+const userMiddleware = require('./middleware/user')
 
 const MONGODB_URI = 'mongodb://Vyacheslav:asus1234@ds161740.mlab.com:61740/shop'
 const app = express()
@@ -48,6 +49,7 @@ app.use(session({
   store
 }))
 app.use(varMiddleware)
+app.use(userMiddleware)
 
 app.use('/', homeRoutes)
 app.use('/add', addRoutes)
@@ -66,17 +68,18 @@ async function startMongo() {
       useFindAndModify: false
     })
 
-    // const candidate = await User.findOne()
-    //
-    // if (!candidate) {
-    //   const user = new User({
-    //     email: 'vyacheslavsergin@gmail.com',
-    //     name: 'Vyacheslav',
-    //     cart: { items: [] }
-    //   })
-    //
-    //   await user.save()
-    // }
+    // Write the user to the database
+    const candidate = await User.findOne()
+
+    if (!candidate) {
+      const user = new User({
+        email: 'vyacheslavsergin@gmail.com',
+        name: 'Vyacheslav',
+        cart: { items: [] }
+      })
+
+      await user.save()
+    }
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`)
