@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
   res.render('courses', {
     title: 'Курсы',
     isCourses: true,
+    // csrf: req.csrfToken(),
     courses
   })
 })
