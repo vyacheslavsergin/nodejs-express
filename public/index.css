@@ -1,6 +1,6 @@
 .nav-wrapper {
-   padding: 0 2rem;
- }
+  padding: 0 2rem;
+}
 
 .price {
   font-size: 2rem;
@@ -47,4 +47,9 @@
   margin-bottom: 1rem;
   background: rgba(255, 0, 0, .3);
   color: red;
+}
+
+.avatar {
+  max-width: 300px;
+  height: auto;
 }
