@@ -15,7 +15,10 @@ const authRoutes = require('./routes/auth')
 // const User = require('./models/user')
 const varMiddleware = require('./middleware/variables')
 const userMiddleware = require('./middleware/user')
+const errorHandler = require('./middleware/error')
 const keys = require('./keys')
+
+const PORT = process.env.PORT || 3000
 
 // const MONGODB_URI = 'mongodb://Vyacheslav:asus1234@ds161740.mlab.com:61740/shop'
 const app = express()
@@ -63,7 +66,7 @@ app.use('/card', cardRoutes)
 app.use('/orders', ordersRoutes)
 app.use('/auth', authRoutes)
 
-const PORT = process.env.PORT || 3000
+app.use(errorHandler)
 
 async function startMongo() {
   try {
