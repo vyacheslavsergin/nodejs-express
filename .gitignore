@@ -5,3 +5,5 @@
 # slash at the end means a folder
 node_modules/
 # folder "build", NOT file "build"
+
+keys/keys.dev.js
