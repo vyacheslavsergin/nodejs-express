@@ -40,7 +40,7 @@ app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')
 
-// app.use(async (req, res, next) => {
+// dummy.use(async (req, res, next) => {
 //   try {
 //     const user = await User.findById('5d55362843a7671aec707a6c')
 //     req.user = user

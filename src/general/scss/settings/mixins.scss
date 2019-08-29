@@ -1,0 +1,157 @@
+@mixin reset-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-button() {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  user-select: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin objectFitImageParent() {
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @content;
+  }
+}
+
+@mixin defaultSidePaddings() {
+  padding-left: $default-mobile-side-padding;
+  padding-right: $default-mobile-side-padding;
+
+  @include tablet {
+    padding-left: $default-tablet-side-padding;
+    padding-right: $default-tablet-side-padding;
+  }
+}
+
+@mixin mobile-expanded() {
+  @include mobile-only() {
+    width: auto;
+    margin-left: -$default-mobile-side-padding;
+    margin-right: -$default-mobile-side-padding;
+  }
+}
+
+@mixin tablet-expanded() {
+  @include mobile-only() {
+    width: auto;
+    margin-left: -$default-mobile-side-padding;
+    margin-right: -$default-mobile-side-padding;
+  }
+
+  @include tablet-only() {
+    width: auto;
+    margin-left: -$default-tablet-side-padding;
+    margin-right: -$default-tablet-side-padding;
+  }
+}
+
+@mixin soldoutable() {
+  &::after {
+    content: 'Sold Out';
+    display: block;
+    background-color: $color-scarlet;
+    color: $color-white;
+    font-size: 15/16 + rem;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    line-height: 1.6;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    min-width: 113px;
+
+    @include tablet {
+      min-width: 152px;
+      padding: 12px 15px;
+    }
+
+    @content;
+  }
+}
+
+@mixin button() {
+  @include f-roboto(700);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  line-height: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: none;
+
+  @include tablet {
+    font-size: 15px;
+    letter-spacing: 1.7px;
+    line-height: 16px;
+  }
+}
+
+@mixin first-in-row() {
+  @include desktop-wide {
+    padding-left: 70px;
+  }
+}
+
+@mixin last-in-row() {
+  @include desktop-wide {
+    padding-right: 70px;
+  }
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin placecolor($color: $color-greyish) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}

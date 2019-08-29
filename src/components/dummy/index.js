@@ -1,3 +1,9 @@
+import './scss/index.scss'
+
+import Dummy from './js/dummy.component'
+
+const dummy = [...document.querySelectorAll('[data-app-component="dummy"]')].map(n => new Dummy(n))
+
 const toCurrency = price => {
   return new Intl.NumberFormat('ru-RU', {
     currency: 'rub',

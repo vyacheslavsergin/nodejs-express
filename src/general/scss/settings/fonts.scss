@@ -1,0 +1,64 @@
+//$ff-roboto: Roboto, Helvetica, Tahoma, sans-serif;
+//$ff-the-open: TheOpen, Helvetica, Tahoma, sans-serif;
+//$ff-fallback: Helvetica, Tahoma, sans-serif;
+//
+//$font-families: (
+//  roboto: "'Roboto', Helvetica, Tahoma, sans-serif",
+//  the-open: "'TheOpen', Helvetica, Tahoma, sans-serif"
+//);
+//
+//$font-sizes: (
+//  12:20,
+//  14:20,
+//  16:24,
+//  18:24,
+//  24:32,
+//  26:32,
+//  34:36,
+//  40:48,
+//  70:72
+//);
+//
+//$font-weights: (
+//  light: 300,
+//  normal: 400,
+//  bold: 700
+//);
+//
+//@mixin f-roboto($weight: 400) {
+//  font-weight: $weight;
+//  font-family: $ff-fallback;
+//
+//  .fonts-loaded & {
+//    font-family: $ff-roboto;
+//  }
+//}
+//
+//@mixin f-the-open($weight: 400) {
+//  font-weight: $weight;
+//  font-family: $ff-fallback;
+//
+//  .fonts-loaded & {
+//    font-family: $ff-the-open;
+//  }
+//}
+
+@mixin heebo($style: regular) {
+  font-family: 'Heebo-Regular';
+
+  @if $style == light {
+    font-family: 'Heebo-Light';
+  }
+
+  @if $style == medium {
+    font-family: 'Heebo-Medium';
+  }
+
+  @if $style == bold {
+    font-family: 'Heebo-Bold';
+  }
+}
+
+@mixin clearsans($style: regular) {
+  font-family: 'clear_sansregular';
+}

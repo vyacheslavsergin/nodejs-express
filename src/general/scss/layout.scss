@@ -1,0 +1,35 @@
+html {
+  font-size: 100%;
+  position: relative;
+  overflow-y: scroll;
+
+  &.is-blocked {
+    overflow: hidden;
+  }
+
+  &.is-blocked-touch {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+    height: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+//[data-whatintent='mouse'] *:focus,
+//[data-whatintent='touch'] *:focus {
+//  outline: none;
+//}
+
+body {
+  // @include clearsans();
+  font-family: 'clear_sansregular';
+
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}

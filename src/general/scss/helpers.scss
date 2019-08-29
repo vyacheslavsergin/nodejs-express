@@ -1,0 +1,93 @@
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-mobile {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.hidden-tablet {
+  @include tablet-only {
+    display: none;
+  }
+}
+
+.hidden-desktop {
+  @include desktop {
+    display: none;
+  }
+}
+
+.of-cover {
+  @include objectFitImageParent();
+}
+
+.of-contain {
+  @include objectFitImageParent() {
+    object-fit: contain;
+  }
+}
+
+.op-top {
+  object-position: 0 0;
+}
+
+.op-top-middle {
+  object-position: 0 25%;
+}
+
+.op-middle {
+  object-position: 0 50%;
+}
+
+.op-bottom-middle {
+  object-position: 0 75%;
+}
+
+.op-bottom {
+  object-position: 0 100%;
+}
+
+.fill-parent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.throttle {
+  display: none;
+  margin-bottom: 10px;
+  color: $color-scarlet;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  line-height: 1.15;
+
+  @include tablet {
+    font-size: 14px;
+    letter-spacing: 0.2px;
+  }
+
+  &.is-shown {
+    display: block;
+  }
+}

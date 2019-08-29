@@ -1,0 +1,30 @@
+.dummy {
+  //@include mobile-wide {
+  //  background-color: $color-ocean-blue;
+  //}
+  //
+  //@include tablet {
+  //  background-color: $color-disabled-border;
+  //}
+  //
+  //@include desktop {
+  //  background-color: $color-marine;
+  //}
+  //
+  //@include desktop-wide {
+  //  background-color: $color-cherry-red;
+  //}
+
+  &__container {
+    max-width: $container-wide-max-width;
+    margin: 0 auto;
+  }
+
+  &__picture {
+    width: 400px;
+    height: 400px;
+    background: url('/assets/images/react.png') 0 0 no-repeat;
+    // background: url('/assets/images/webpack.svg') 0 0 no-repeat;
+    background-size: contain;
+  }
+}
